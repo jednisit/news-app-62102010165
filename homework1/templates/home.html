@@ -1,0 +1,87 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+<div class="container mt-5 rounded-lg pageContentWrapper" style="background-color: rgb(226, 226, 226);">
+    <h3 class="pt-4 mb-3"style="color:#2AC2F2;text-align: center">Covid-19 News <span class="badge badge-danger">*Recent*</span></h3>
+    <div id="news" class="carousel slide pb-5" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#news" data-slide-to="0" class="active"></li>
+            <li data-target="#news" data-slide-to="1"></li>
+            <li data-target="#news" data-slide-to="2"></li>
+            <li data-target="#news" data-slide-to="3"></li>
+            <li data-target="#news" data-slide-to="4"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ news[0]['img'] }}" width="1100" height="500">
+                <div class="carousel-caption" style="background: rgba(0, 0, 0, 0.7);">
+                    <h3>{{ news[0]['head'] }}</h3>
+                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ news[0]['content'] }} <a href="{{ news[0]['url'] }}" target="_blank">read more</a></p>
+                </div>   
+            </div>
+            <div class="carousel-item">
+                <img src="{{ news[1]['img'] }}" width="1100" height="500">
+                <div class="carousel-caption" style="background: rgba(0, 0, 0, 0.7)">
+                    <h3>{{ news[1]['head'] }}</h3>
+                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ news[1]['content'] }} <a href="{{ news[1]['url'] }}" target="_blank">read more</a></p>
+                </div>   
+            </div>
+            <div class="carousel-item">
+                <img src="{{ news[2]['img'] }}" width="1100" height="500">
+                <div class="carousel-caption" style="background: rgba(0, 0, 0, 0.7)">
+                    <h3>{{ news[2]['head'] }}</h3>
+                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ news[2]['content'] }} <a href="{{ news[2]['url'] }}" target="_blank">read more</a></p>
+                </div>   
+            </div>
+            <div class="carousel-item">
+                <img src="{{ news[3]['img'] }}" width="1100" height="500">
+                <div class="carousel-caption" style="background: rgba(0, 0, 0, 0.7)">
+                    <h3>{{ news[3]['head'] }}</h3>
+                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ news[3]['content'] }} <a href="{{ news[3]['url'] }}" target="_blank">read more</a></p>
+                </div>   
+            </div>
+            <div class="carousel-item">
+                <img src="{{ news[4]['img'] }}" width="1100" height="500">
+                <div class="carousel-caption" style="background: rgba(0, 0, 0, 0.7)">
+                    <h3>{{ news[4]['head'] }}</h3>
+                    <p class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ news[4]['content'] }} <a href="{{ news[4]['url'] }}" target="_blank">read more</a></p>
+                </div>   
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#news" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#news" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+    <h3 class="pt-4 pb-3"style="color:#2AC2F2;text-align: center">สภาพอากาศ <span class="badge badge-danger"><i class="fa fa-cloud"></i></span></h3>
+    <div class="row">
+        <div class="col">
+            <h4 class="pl-4" style="font-weight:bold;text-align: right">{{ weather['city'] }} {{ weather['country'] }}</h4>
+            <h1 class="pl-4" style="font-weight:bold; font-size: 70px;text-align: right">{{ weather['temperature'] }}&#8451;</h1>
+            <hr>
+            <p><i class="fas fa-temperature-low"></i> สูง/ต่ำ<span style="float:right">{{ weather['max_min'] }}&#8451;</span><p>
+            <hr>
+            <p><i class="fas fa-angle-double-down"></i> ความกดอากาศ<span style="float:right">{{ weather['pressure'] }} มิลลิบาร์</span><p></p>
+            <hr>
+            <p><i class="fas fa-map-marker rotate"></i> ความชื้น<span style="float:right">{{ weather['humidity'] }}%</span><p></p>
+            <hr>
+            <p><i class="fas fa-wind"></i> ความเร็วลม<span style="float:right">{{ weather['wind'] }} กม./ชม.</span><p></p>
+            <form action="/">
+                <div class="input-group mb-3">
+                    <input type="text" name="city" class="form-control" placeholder="ชื่อเมือง">
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="submit">ค้นหาเมือง</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <h6 style=" height:81px"><img class="pl-4" src="{{ weather['img'] }}"><p></p>
+                <h3 class="pl-4" style="font-weight:bold;">{{ weather['description'] }}</h3>
+        </div>
+    </div>
+</div>
+{% endblock %}

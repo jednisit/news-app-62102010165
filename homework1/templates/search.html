@@ -1,0 +1,30 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+<div class="container mt-5 rounded-lg pageContentWrapper" style="background-color: white;">
+<h3 class="pt-4 mb-3" style="color:#1B44AB">ค้นหาข่าวที่คุณสนใจ <span class="badge badge-danger"><i class="fa fa-search"></i></span></h3>
+<form action="/search" class="m-auto">
+  <div class="row">
+    <div class="col-3" style="margin-top: 8px;">
+      <input type="text" name="keyword" class="form-control mt-3" placeholder="คำค้นหา">
+    </div>
+    <div class="col" style="margin-left: -20px;">
+      <input type="submit" class="btn btn-primary mt-4" style="float: left" value="ค้นหา">
+    </div>
+  </div>
+</form>
+<br></br>
+{% if news[0] != 0 %}
+<div class="list-group pb-4">
+    {% for i in range(1, news[0]+1) %}
+        <div class="media border border-primary p-3">
+            <div class="media-body">
+                <h4>{{ news[i]['head'] }}</h4>
+                <p>{{ news[i]['content'] }}<a href="{{ news[i]['url'] }}" target="_blank"> read more</a></p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+{% endblock %}  
