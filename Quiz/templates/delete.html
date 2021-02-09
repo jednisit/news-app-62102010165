@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+<div class="mt">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="touch">
+                <div class="card text-left">
+                    <div class="card-body">
+                        <form action="" method="POST" class="text-center">
+                            <h5>Are you sure want to delete ID : {{data}}</h5>
+                            <input type="submit" name="conf_yes" class="btn btn-success" value="YES">
+                            <a type="button" href="/" class="btn btn-danger">NO</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

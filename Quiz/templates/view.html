@@ -1,0 +1,47 @@
+{% extends 'base_layout.html' %}
+{% block body %}
+<div class="mt">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="touch">
+                <div class="card text-left">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <form action="" method="POST">
+                                    <div class="form-group">
+                                        <label for="title">Title</label>
+                                        <input type="text" class="form-control" id="title" name="title"
+                                            placeholder="Example input" value="{{data.title}}" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="author">Author</label>
+                                        <input type="text" class="form-control" id="author" name="author"
+                                            placeholder="Another input" value="{{data.author}}" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="genre">Genre</label>
+                                        <input type="text" class="form-control" id="genre" name="genre"
+                                            placeholder="Another input" value="{{data.genre}}" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="heigh">Heigh</label>
+                                        <input type="number" min="0" class="form-control" id="heigh" name="heigh"
+                                            placeholder="Another input" value="{{data.heigh}}" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="publisher">Publisher</label>
+                                        <input type="text" class="form-control" id="publisher" name="publisher"
+                                            placeholder="Another input" value="{{data.publisher}}" disabled>
+                                    </div>
+                                    <a type="submit" href="/update/{{data.id}}" class="btn btn-sm btn-deep-purple">Update</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

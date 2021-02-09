@@ -1,0 +1,58 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+    <div class="mt">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="touch">
+                    <div class="card text-left">
+                        <div class="card-body">
+                    <a href="/insert" class="pl-3" style="font-size: 30px;color:#00C851;"><i class="fas fa-plus"></i></a>
+
+                            <div class="table-responsive-sm">
+                                <table class="table table-md table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Author</th>
+                                        <th scope="col">Genre</th>
+                                        <th scope="col">Heigh</th>
+                                        <th scope="col">Publisher</th>
+                                        <th scope="col" class="text-center">Action</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data in data %}
+    
+                                      <tr>
+                                        <th scope="row">{{data.id}}</th>
+                                        <td>{{data.title}}</td>
+                                        <td>{{data.author}}</td>
+                                        <td>{{data.genre}}</td>
+                                        <td>{{data.heigh}}</td>
+                                        <td>{{data.publisher}}</td>
+                                        <td>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <a href="/view/{{data.id}}" style="color: orange;"><i class="fas fa-edit"></i></a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a href="/delete/{{data.id}}" style="color:red"><i class="fas fa-trash-alt"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                      </tr>
+                                      {% endfor %}
+                                    </tbody>
+                                  </table>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
